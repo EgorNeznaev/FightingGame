@@ -1,9 +1,6 @@
 import pygame
 import random
 
-
-
-
 pygame.init()
 screen = pygame.display.set_mode((1500, 600))
 pygame.display.set_caption("Слово пацана")
