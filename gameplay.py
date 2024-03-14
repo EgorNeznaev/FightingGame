@@ -1,3 +1,4 @@
+from ArmyFactory import PresetArmyFactory
 from player import Player
 from Unit import Unit, Lightassaulte, Heavyassaulte
 
@@ -47,11 +48,8 @@ class Gameplay:
 player1 = Player('p1')
 player2 = Player('p2')
 
-
-player1.recruit(Lightassaulte())
-player1.recruit(Heavyassaulte())
-player2.recruit(Heavyassaulte())
-player2.recruit(Lightassaulte())
+player1.create_army_with_factory(PresetArmyFactory('light'))
+player2.create_army_with_factory(PresetArmyFactory('heavy'))
 
 game = Gameplay(player1, player2)
 

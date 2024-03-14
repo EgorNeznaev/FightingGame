@@ -1,5 +1,5 @@
 from Unit import *
-
+from ArmyFactory import ArmyFactory
 class Player:
     def __init__(self, name, money=12):
         self.name = name
@@ -17,6 +17,13 @@ class Player:
         else:
             print("Invalid unit object. It must be an instance of the Unit class.")
 
+    def create_army_with_factory(self, factory: ArmyFactory):
+        if isinstance(factory, ArmyFactory):
+            army = factory.create_army()
+            for unit in army:
+                self.recruit(unit)
+        else:
+            print("Invalid factory object. It must be an instance of the ArmyFactory class.")
 
 
 
