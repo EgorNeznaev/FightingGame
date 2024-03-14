@@ -48,8 +48,8 @@ class Gameplay:
 player1 = Player('p1')
 player2 = Player('p2')
 
-player1.create_army_with_factory(LightArmyFactory(), 2)
-player2.create_army_with_factory(HeavyArmyFactory(), 2)
+player1.create_army_with_factory([LightArmyFactory()], [6])
+player2.create_army_with_factory([LightArmyFactory(), HeavyArmyFactory()], [1, 2])
 
 game = Gameplay(player1, player2)
 

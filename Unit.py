@@ -14,7 +14,7 @@ class Unit(ABC):
 
 
 class Lightassaulte(Unit):
-    def __init__(self, healthpoint=20, damage=5, cost=3, name='Lightassaulte'):
+    def __init__(self, healthpoint=20, damage=5, cost=2, name='Lightassaulte'):
         super().__init__(healthpoint, damage, cost, name)
 
     def attack(self, unit):
