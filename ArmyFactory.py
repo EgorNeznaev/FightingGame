@@ -1,19 +1,22 @@
 from abc import ABC, abstractmethod
 from Unit import Lightassaulte, Heavyassaulte
+from Army import Army
 
 class ArmyFactory(ABC):
     @abstractmethod
-    def create_army(self):
+    def create_army(self, size: int) -> Army:
         pass
 
-class PresetArmyFactory(ArmyFactory):
-    def __init__(self, preset):
-        self.preset = preset
+class LightArmyFactory(ArmyFactory):
+    def create_army(self, size: int) -> Army:
+        army = Army()
+        for _ in range(size):
+            army.add_unit(Lightassaulte())
+        return army
 
-    def create_army(self):
-        if self.preset == 'light':
-            return [Lightassaulte() for _ in range(5)]
-        elif self.preset == 'heavy':
-            return [Heavyassaulte() for _ in range(5)]
-        else:
-            raise ValueError(f"Unknown preset: {self.preset}")
+class HeavyArmyFactory(ArmyFactory):
+    def create_army(self, size: int) -> Army:
+        army = Army()
+        for _ in range(size):
+            army.add_unit(Heavyassaulte())
+        return army
