@@ -30,7 +30,7 @@ class DatabaseConnection:
             print("No active database connection.")
             return
         cursor = self.connection.cursor()
-        query = "SELECT nickname, wins FROM leaderboard"
+        query = "SELECT nickname, wins FROM leaderboard order by wins DESC "
         cursor.execute(query)
         leaders = cursor.fetchall()
         cursor.close()
