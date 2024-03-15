@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 
 
 class Unit(ABC):
-    def __init__(self, healthpoint, damage, cost, name):
-        self.healthPoint = healthpoint
+    def __init__(self, healthPoint, damage, cost, name):
+        self.healthPoint = healthPoint
         self.damage = damage
         self.cost = cost
         self.name = name
@@ -13,21 +13,41 @@ class Unit(ABC):
         pass
 
 
-class Lightassaulte(Unit):
-    def __init__(self, healthpoint=20, damage=5, cost=2, name='Lightassaulte'):
-        super().__init__(healthpoint, damage, cost, name)
+class HumanLightAssault(Unit):
+    def __init__(self, healthPoint=25, damage=5, cost=3, name='LightAssault'):
+        super().__init__(healthPoint, damage, cost, name)
 
     def attack(self, unit):
-        damagedealt = self.damage
-        unit.healthPoint -= damagedealt
-        return damagedealt
+        damage_dealt = self.damage
+        unit.healthPoint -= damage_dealt
+        return damage_dealt
 
 
-class Heavyassaulte(Unit):
-    def __init__(self, healthpoint=30, damage=7, cost=5, name='Heavyassaulte'):
-        super().__init__(healthpoint, damage, cost, name)
+class HumanHeavyAssault(Unit):
+    def __init__(self, healthPoint=40, damage=8, cost=4, name='HeavyAssault'):
+        super().__init__(healthPoint, damage, cost, name)
 
     def attack(self, unit):
-        damagedealt = self.damage
-        unit.healthPoint -= damagedealt
-        return damagedealt
+        damage_dealt = self.damage
+        unit.healthPoint -= damage_dealt
+        return damage_dealt
+
+
+class ElfLightAssault(Unit):
+    def __init__(self, healthPoint=18, damage=10, cost=3, name='LightAssault'):
+        super().__init__(healthPoint, damage, cost, name)
+
+    def attack(self, unit):
+        damage_dealt = self.damage
+        unit.healthPoint -= damage_dealt
+        return damage_dealt
+
+
+class ElfHeavyAssault(Unit):
+    def __init__(self, healthPoint=25, damage=14, cost=5, name='HeavyAssault'):
+        super().__init__(healthPoint, damage, cost, name)
+
+    def attack(self, unit):
+        damage_dealt = self.damage
+        unit.healthPoint -= damage_dealt
+        return damage_dealt

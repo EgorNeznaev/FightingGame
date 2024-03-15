@@ -1,8 +1,8 @@
 import sqlite3
 
+
 class DatabaseConnection:
     _instance = None
-
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
@@ -16,18 +16,15 @@ class DatabaseConnection:
     def connect(self):
         if not self.connection:
             self.connection = sqlite3.connect(self.db_name)
-            print(f"Connected to database: {self.db_name}")
         return self.connection
 
     def close(self):
         if self.connection:
             self.connection.close()
-            print(f"Disconnected from database: {self.db_name}")
             self.connection = None
 
-    def getleaders(self):
+    def get_leaders(self):
         if not self.connection:
-            print("No active database connection.")
             return
         cursor = self.connection.cursor()
         query = "SELECT nickname, wins FROM leaderboard order by wins DESC "
